@@ -112,7 +112,7 @@ if search_button:
         from (select book_id\
             from translator\
                     inner join translator_page on translator_page.translator_id = translator.translator_id\
-         where translator_page.name in in("+str(translator_box).replace('[','').replace(']','')+")) as tbl\
+         where translator_page.name in ("+str(translator_box).replace('[','').replace(']','')+")) as tbl\
          inner join book_detail on book_detail.book_id = tbl.book_id\
          inner join translator on book_detail.book_id = translator.book_id\
          inner join translator_page on translator_page.translator_id = translator.translator_id"
@@ -135,11 +135,10 @@ if search_button:
         query+=' and publisher.name in('+str(publishers_box).replace('[','').replace(']','')+')'
     if len(writers_box)!=0:
         query+=' and writer_page.name in('+str(writers_box).replace('[','').replace(']','')+')'
-
     searched_df=get_search_result(mysqldb,query)
+
     searched_df=pd.merge(book_tags_df,searched_df,how='inner')
     searched_df=pd.merge(searched_df,book_translator_df,how='inner')
-   
     grouped=searched_df.groupby('book_id')
     
     all_book_list=[]

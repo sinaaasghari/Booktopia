@@ -143,60 +143,69 @@ def get_book_summary(mysql:MySQLConnection)->pd.DataFrame:
     return pandas_sql(mysql,query)
 
 def get_best_books_by_budget(mysql:MySQLConnection,budget) ->pd.DataFrame:
-    query=f"select * from (\
-            select book_detail.book_id,\
+    query=f"select *\
+            from (select *, sum(after_discount) over (order by score desc,after_discount) as sumofprice\
+            from (select book_detail.book_id,\
             book_detail.Persian_title,\
             book_detail.English_title,\
-            publisher_id,\
-            max(price_history.date) as last_update,\
-            score,\
-            (price * (100 - price_history.discount) / 100) as after_discount,\
-            sum((price * (100 - price_history.discount) / 100)) over (order by score\
-            desc, price) as sumofprice\
+            publisher_id,score,\
+            (prices_tbl.price * (100 - prices_tbl.discount) / 100) as after_discount,\
+            prices_tbl.date\
             from book_detail\
-            inner join price_history\
-            on book_detail.book_id = price_history.book_id\
+                     inner join (SELECT book_id, date, price, discount\
+                                 FROM price_history\
+                                 WHERE (book_id, date) IN (SELECT book_id, MAX(date)\
+                                                           FROM price_history\
+                                                           GROUP BY book_id)) as prices_tbl\
+                                on prices_tbl.book_id = book_detail.book_id\
             where book_detail.stock_status = ' موجود '\
-            and (price * (100 - price_history.discount) / 100)<={budget}\
-            group by book_detail.book_id\
-            order by score desc, price) as t where sumofprice<={budget}" 
+            and (prices_tbl.price * (100 - prices_tbl.discount) / 100) <= {budget}\
+            order by score desc, after_discount) as inner_tbl) as outer_tbl\
+            where sumofprice <= {budget}" 
     return pandas_sql(mysql,query)
 
 def get_most_profitable_books_by_budget(mysql:MySQLConnection,budget) ->pd.DataFrame:
-    query=f"select * from (\
-            select book_detail.book_id,\
+    query=f"select *\
+            from (select *, sum(after_discount) over (order by edition desc,after_discount) as sumofprice\
+            from (select book_detail.book_id,\
             book_detail.Persian_title,\
             book_detail.English_title,\
-            max(price_history.date) as last_update,\
-            edition,\
-            publisher_id,\
-            (price * (100 - price_history.discount) / 100) as after_discount,\
-            sum((price * (100 - price_history.discount) / 100)) over (order by edition\
-            desc, price) as sumofprice\
+            publisher_id,edition,\
+            (prices_tbl.price * (100 - prices_tbl.discount) / 100) as after_discount,\
+            prices_tbl.date\
             from book_detail\
-            inner join price_history\
-            on book_detail.book_id = price_history.book_id\
+                     inner join (SELECT book_id, date, price, discount\
+                                 FROM price_history\
+                                 WHERE (book_id, date) IN (SELECT book_id, MAX(date)\
+                                                           FROM price_history\
+                                                           GROUP BY book_id)) as prices_tbl\
+                                on prices_tbl.book_id = book_detail.book_id\
             where book_detail.stock_status = ' موجود '\
-            and (price * (100 - price_history.discount) / 100)<={budget}\
-            group by book_detail.book_id\
-            order by edition desc, price) as t where sumofprice<={budget}" 
+            and (prices_tbl.price * (100 - prices_tbl.discount) / 100) <= {budget}\
+            order by edition desc, after_discount) as inner_tbl) as outer_tbl\
+            where sumofprice <= {budget}" 
     return pandas_sql(mysql,query)
 
 def get_most_books_by_budget(mysql:MySQLConnection,budget) ->pd.DataFrame:
-    query=f"select * from (\
-            select book_detail.book_id,\
+    query=f"select *\
+            from (select *, sum(after_discount) over (order by after_discount) as sumofprice\
+            from (select book_detail.book_id,\
             book_detail.Persian_title,\
+            book_detail.English_title,\
             publisher_id,\
-            max(price_history.date) as last_update,\
-            (price * (100 - price_history.discount) / 100) as after_discount,\
-            sum((price * (100 - price_history.discount) / 100)) over (order by price) as sumofprice\
+            (prices_tbl.price * (100 - prices_tbl.discount) / 100) as after_discount,\
+            prices_tbl.date\
             from book_detail\
-            inner join price_history\
-            on book_detail.book_id = price_history.book_id\
+                     inner join (SELECT book_id, date, price, discount\
+                                 FROM price_history\
+                                 WHERE (book_id, date) IN (SELECT book_id, MAX(date)\
+                                                           FROM price_history\
+                                                           GROUP BY book_id)) as prices_tbl\
+                                on prices_tbl.book_id = book_detail.book_id\
             where book_detail.stock_status = ' موجود '\
-            and (price * (100 - price_history.discount) / 100)<={budget}\
-            group by book_detail.book_id\
-            order by price) as t where sumofprice<={budget}" 
+            and (prices_tbl.price * (100 - prices_tbl.discount) / 100) <= {budget}\
+            order by after_discount) as inner_tbl) as outer_tbl\
+            where sumofprice <= {budget}" 
     return pandas_sql(mysql,query)
 
 def get_unique_books(mysql:MySQLConnection,number)->pd.DataFrame:
@@ -207,6 +216,7 @@ def get_unique_books(mysql:MySQLConnection,number)->pd.DataFrame:
          order by award desc\
          limit {number}"
     return pandas_sql(mysql,query)
+
 def get_most_veneration_book(mysql:MySQLConnection,num) ->pd.DataFrame:
     query=f'select book_detail.Persian_title,book_detail.English_title,\
             count(distinct  veneration.prise_writer) as count_comment\
@@ -216,6 +226,7 @@ def get_most_veneration_book(mysql:MySQLConnection,num) ->pd.DataFrame:
             order by count_comment desc\
             limit {num}'
     return pandas_sql(mysql,query)
+
 def get_all_books_with_tags(mysql:MySQLConnection)->pd.DataFrame:
     query='select book_tag.site_id, tags.name\
                     from (select site_id\
@@ -224,6 +235,7 @@ def get_all_books_with_tags(mysql:MySQLConnection)->pd.DataFrame:
                     inner join book_tag on tbl.site_id = book_tag.site_id\
                     inner join tags on book_tag.tag_id = tags.id'
     return pandas_sql(mysql,query)
+
 def get_translators_name(mysql:MySQLConnection)->list[str]:
     query='select distinct name\
         from translator\

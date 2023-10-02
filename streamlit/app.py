@@ -1,10 +1,12 @@
 import streamlit as st
 from streamlit_extras.let_it_rain import rain
+from PIL import Image
 
 st.set_page_config(page_icon='📚',page_title='Main page')
-st.markdown("<h1 style='text-align: center;'>📚 Booktopia</h1>", unsafe_allow_html=True)
+image = Image.open('attrs/logo.png')
+st.image(image)
 rain(
-    emoji="📙",
+    emoji="📗",
     font_size=30,
     falling_speed=9,
     animation_length="infinite",
