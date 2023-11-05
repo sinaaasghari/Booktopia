@@ -40,36 +40,9 @@ In this final phase, our focus shifts to statistical analysis and hypothesis tes
 Booktopia is not just a project; it's a vibrant community of book lovers, data enthusiasts, and curious minds. We invite you to explore our GitHub repository, contribute your insights, and embark on this extraordinary literary journey with us. Together, we'll uncover hidden gems and untold stories within the world of books.
 
 Happy reading and exploring! 📚✨
-
-<div>
-    <h2>Meet Our Team</h2>
-
-<div class="team-member">
-        <h3>Hossein Raei</h3>
-      <a href="https://github.com/Raei-MH">
-    <img src="https://avatars.githubusercontent.com/u/79264959?v=4" alt="Profile Icon" width="35px" />
-</a>
-    </div>
-
-<div class="team-member">
-        <h3>Benyamin Ghanbari</h3>
-          <a href="https://github.com/youngbenyamin">
-    <img src="https://avatars.githubusercontent.com/u/121010832?v=4" alt="Profile Icon" width="35px" />
-</a>
-    </div>
-
-<div class="team-member">
-        <h3>Sana Mousavi</h3>
-          <a href="https://github.com/sanoooavi">
-    <img src="https://avatars.githubusercontent.com/u/81512968?v=4" alt="Profile Icon" width="35px" />
-</a>
-    </div>
-
-<div class="team-member">
-        <h3>Mohammad Amin Ahanin</h3>
-         <a href="https://github.com/mohAhanin">
-    <img src="https://avatars.githubusercontent.com/u/117204770?v=4" alt="Profile Icon" width="35px" />
-</a>
-</div>
-
-For inquiries and collaboration opportunities, [contact us]
+## Meet Our Team 
+[<img src="https://avatars.githubusercontent.com/u/79264959?v=4" width="35">](https://github.com/Raei-MH)
+[<img src="https://avatars.githubusercontent.com/u/121010832?v=4" width="35">](https://github.com/youngbenyamin)
+[<img src="https://avatars.githubusercontent.com/u/81512968?v=4" width="35">](https://github.com/sanooavi)
+[<img src="https://avatars.githubusercontent.com/u/117204770?v=4" width="35">](https://github.com/mohAhanin)
+**Special thanks to ** [Sina Asghari](https://github.com/sinaaasghari) for managing the team.
