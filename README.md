@@ -47,16 +47,23 @@ Happy reading and exploring! 📚✨
 <div class="team-member">
         <h3>Hossein Raei</h3>
         <a href="https://github.com/Raei-MH">GitHub Profile</a>
+      <a href="https://github.com/Raei-MH">
+    <img src="https://avatars.githubusercontent.com/u/79264959?v=4" alt="Profile Icon" width="35px" />
+</a>
     </div>
 
 <div class="team-member">
         <h3>Benyamin Ghanbari</h3>
-        <a href="https://github.com/youngbenyamin">GitHub Profile</a>
+          <a href="https://github.com/youngbenyamin">
+    <img src="https://avatars.githubusercontent.com/u/121010832?v=4" alt="Profile Icon" width="35px" />
+</a>
     </div>
 
 <div class="team-member">
         <h3>Sana Mousavi</h3>
-        <a href="https://github.com/sanoooavi">GitHub Profile</a>
+          <a href="https://github.com/sanoooavi">
+    <img src="https://avatars.githubusercontent.com/u/81512968?v=4" alt="Profile Icon" width="35px" />
+</a>
     </div>
 
 <div class="team-member">
