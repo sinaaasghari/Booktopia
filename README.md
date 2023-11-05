@@ -61,8 +61,9 @@ Happy reading and exploring! 📚✨
 
 <div class="team-member">
         <h3>Mohammad Amin Ahanin</h3>
-        <a href="https://github.com/mohAhanin">GitHub Profile</a>
-    </div>
+         <a href="https://github.com/mohAhanin">
+    <img src="https://avatars.githubusercontent.com/u/117204770?v=4" alt="Profile Icon" width="35px" />
+</a>
 </div>
 
 For inquiries and collaboration opportunities, [contact us]
