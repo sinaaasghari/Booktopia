@@ -37,7 +37,7 @@ In this final phase, our focus shifts to statistical analysis and hypothesis tes
 
 ## Join the Bookopia Community 🌟
 
-[Your Project Name] is not just a project; it's a vibrant community of book lovers, data enthusiasts, and curious minds. We invite you to explore our GitHub repository, contribute your insights, and embark on this extraordinary literary journey with us. Together, we'll uncover hidden gems and untold stories within the world of books.
+Booktopia is not just a project; it's a vibrant community of book lovers, data enthusiasts, and curious minds. We invite you to explore our GitHub repository, contribute your insights, and embark on this extraordinary literary journey with us. Together, we'll uncover hidden gems and untold stories within the world of books.
 
 Happy reading and exploring! 📚✨
 
