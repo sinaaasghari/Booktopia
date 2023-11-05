@@ -43,6 +43,6 @@ Happy reading and exploring! 📚✨
 ## Meet Our Team 
 [<img src="https://avatars.githubusercontent.com/u/79264959?v=4" width="35">](https://github.com/Raei-MH)
 [<img src="https://avatars.githubusercontent.com/u/121010832?v=4" width="35">](https://github.com/youngbenyamin)
-[<img src="https://avatars.githubusercontent.com/u/81512968?v=4" width="35">](https://github.com/sanooavi)
+[<img src="https://avatars.githubusercontent.com/u/81512968?v=4" width="35">](https://github.com/sanoooavi)
 [<img src="https://avatars.githubusercontent.com/u/117204770?v=4" width="35">](https://github.com/mohAhanin)
 ##### Special thanks to [Sina Asghari](https://github.com/sinaaasghari) for managing the team.
