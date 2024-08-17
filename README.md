@@ -45,4 +45,5 @@ Happy reading and exploring! 📚✨
 [<img src="https://avatars.githubusercontent.com/u/121010832?v=4" width="35">](https://github.com/youngbenyamin)
 [<img src="https://avatars.githubusercontent.com/u/81512968?v=4" width="35">](https://github.com/sanoooavi)
 [<img src="https://avatars.githubusercontent.com/u/117204770?v=4" width="35">](https://github.com/mohAhanin)
+[<img src="https://avatars.githubusercontent.com/u/175393772?v=4" width="35">](https://github.com/AidaKashanian)
 ##### Special thanks to [Sina Asghari](https://github.com/sinaaasghari) for managing the team.
